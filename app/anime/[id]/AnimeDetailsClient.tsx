@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import LoadingAnimation from "@/app/components/LoadingAnimation";
 
 interface AnimeDetails {
@@ -128,7 +129,7 @@ export default function AnimeDetailsClient({ params }: Props) {
       window.addEventListener("scroll", handleScroll);
       return () => window.removeEventListener("scroll", handleScroll);
     }
-  }, [params.id]);
+  }, [params.id, retryCount]);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -181,10 +182,12 @@ export default function AnimeDetailsClient({ params }: Props) {
       {/* Hero Section */}
       <div className="relative h-[50vh] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-950/50 to-gray-950 z-10" />
-        <img
+        <Image
           src={imageUrl}
           alt={anime.title}
-          className="w-full h-full object-cover"
+          fill
+          className="object-cover"
+          priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/50 to-transparent z-20" />
         <div className="absolute bottom-0 left-0 right-0 p-8 z-30">
