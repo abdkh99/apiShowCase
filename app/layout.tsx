@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "animeVerse",
   description: "عرض الأنمي الشائع",
   icons: {
-    icon: "/animeflix.ico",
+    icon: "/animeflix.svg",
   },
 };
 
