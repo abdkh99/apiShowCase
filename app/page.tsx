@@ -1,5 +1,5 @@
 "use client";
-
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import Link from "next/link";
@@ -299,14 +299,7 @@ export default function Home() {
     setSearchQuery(e.target.value);
   };
 
-  const handleGenreClick = (genre: string) => {
-    const newGenres = selectedGenres.includes(genre)
-      ? selectedGenres.filter((g) => g !== genre)
-      : [...selectedGenres, genre];
-    setSelectedGenres(newGenres);
-    setPage(1);
-    fetchAnime(searchQuery, newGenres, 1, false);
-  };
+  
 
   const loadMore = () => {
     if (!hasMore || isLoadingMore) return;
